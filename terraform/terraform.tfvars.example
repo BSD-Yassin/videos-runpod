@@ -1,0 +1,27 @@
+# One-shot session (no network volume — models live on ephemeral /workspace).
+
+pod_name             = "comfyui-minimax-h3"
+cloud_type           = "SECURE"
+create_pod           = true
+download_models      = true
+comfy_ref            = "v0.37.0"
+min_ram_per_gpu      = 48
+volume_in_gb         = 100
+container_disk_in_gb = 30
+data_center_ids      = []
+
+# 48GB+ only — H3 R2V OOMs on 24GB cards (4090/3090).
+gpu_type_ids = [
+  "NVIDIA A40",
+  "NVIDIA RTX A6000",
+  "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "NVIDIA L40",
+  "NVIDIA RTX 6000 Ada Generation",
+  "NVIDIA L40S",
+  "NVIDIA A100 80GB PCIe",
+]
+
+image_name = "runpod/pytorch:1.0.2-cu1281-torch271-ubuntu2204"
+
+ssh_public_key_file = "../keys/runpod_comfy.pub"
+# terraform apply -var="hf_token=$HF_TOKEN"

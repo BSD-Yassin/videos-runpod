@@ -1,0 +1,42 @@
+# Nix / direnv
+.direnv/
+.result
+result
+
+# Secrets and local env (never commit)
+.envrc.local
+.env
+.env.*
+!.env.example
+
+# SSH keys (generate locally — see README)
+keys/*
+!keys/.gitkeep
+
+# Personal media / session outputs
+localvideo/*
+!localvideo/.gitkeep
+*.mp4
+*.mp3
+*.wav
+*.webm
+
+# Terraform
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/*.tfvars
+!terraform/terraform.tfvars.example
+terraform/crash.log
+terraform/override.tf
+terraform/*_override.tf
+
+# Editor / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Generated plans
+terraform/tfplan
+terraform/*.tfplan
